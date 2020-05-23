@@ -15,6 +15,7 @@
 		"@types/ink-spinner": "^3.0.0",
 		"import-jsx": "^4.0.0",
 		"ink": "^2.7.1",
+		"ink-big-text": "^1.1.0",
 		"ink-spinner": "^3.0.1",
 		"meow": "^7.0.1",
 		"prop-types": "^15.7.2",
