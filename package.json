@@ -2,6 +2,7 @@
 	"name": "@nielinjie/multi-repo-cli",
 	"version": "0.1.0",
 	"license": "MIT",
+	"repository": "https://github.com/nielinjie/multi-repo-cli",
 	"bin": "cli.js",
 	"engines": {
 		"node": ">=8"
@@ -10,7 +11,7 @@
 		"test": "xo && ava"
 	},
 	"dependencies": {
-		"@nielinjie/multi-repo": "^1.0.0",
+		"@nielinjie/multi-repo": "^1.0.1",
 		"@types/ink-spinner": "^3.0.0",
 		"import-jsx": "^4.0.0",
 		"ink": "^2.7.1",
