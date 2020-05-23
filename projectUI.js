@@ -1,13 +1,12 @@
 "use strict";
 
-
 const React = require("react");
 const { useState, useEffect } = React;
 const PropTypes = require("prop-types");
 const { Text, Color, Box } = require("ink");
 const { ProjectCheckTask } = require("@nielinjie/multi-repo");
 
-const Spinner = require("ink-spinner").default
+const Spinner = require("ink-spinner").default;
 const ProjectUI = ({ project }) => {
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
