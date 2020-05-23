@@ -12,9 +12,16 @@ const ProjectUI = ({ project }) => {
   useEffect(() => {
     const pt = new ProjectCheckTask(project);
     setTasks(pt.tasks);
-    pt.all().then((re) => {
-      setTasks(re.map((r) => r[0]));
+    pt.tasks.forEach((checkTask) => {
+      checkTask.then((completedTask) => {
+        setTasks((preTasks) =>
+          preTasks.map((t) => (t.name === completedTask.name ? completedTask : t))
+        );
+      });
     });
+    // pt.all().then((re) => {npm
+    //   setTasks(re.map((r) => r[0]));
+    // });
   }, []);
   return (
     <Box flexDirection="column" paddingBottom={2}>
