@@ -22,8 +22,6 @@ App.propTypes = {
 	basePath: PropTypes.string,
 };
 
-App.defaultProps = {
-	basePath: "Stranger",
-};
+
 
 module.exports = App;

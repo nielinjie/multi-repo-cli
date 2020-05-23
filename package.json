@@ -1,6 +1,6 @@
 {
-	"name": "cli",
-	"version": "0.0.0",
+	"name": "@nielinjie/multi-repo-cli",
+	"version": "0.1.0",
 	"license": "MIT",
 	"bin": "cli.js",
 	"engines": {
@@ -9,13 +9,12 @@
 	"scripts": {
 		"test": "xo && ava"
 	},
-	"files": [
-		"cli.js",
-		"ui.js"
-	],
 	"dependencies": {
+		"@nielinjie/multi-repo": "^1.0.0",
+		"@types/ink-spinner": "^3.0.0",
 		"import-jsx": "^4.0.0",
 		"ink": "^2.7.1",
+		"ink-spinner": "^3.0.1",
 		"meow": "^7.0.1",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1"

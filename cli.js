@@ -3,20 +3,16 @@
 const React = require('react');
 const importJsx = require('import-jsx');
 const {render} = require('ink');
+const path =  require('path');
 const meow = require('meow');
 
 const ui = importJsx('./ui');
 
 const cli = meow(`
 	Usage
-	  $ cli
-
-	Options
-		--name  Your name
+	  $ cli <basePath>
 
 	Examples
-	  $ cli --name=Jane
-	  Hello, Jane
+	  $ cli ./foo
 `);
-
-render(React.createElement(ui, {basePath:'../../QuickQui'}));
+render(React.createElement(ui, {basePath:path.resolve(process.cwd(),cli.input[0]||'.')}));
