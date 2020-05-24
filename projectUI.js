@@ -12,16 +12,29 @@ const ProjectUI = ({ project }) => {
   useEffect(() => {
     const pt = new ProjectCheckTask(project);
     setTasks(pt.tasks);
-    pt.tasks.forEach((checkTask) => {
-      checkTask.then((completedTask) => {
-        setTasks((preTasks) =>
-          preTasks.map((t) => (t.name === completedTask.name ? completedTask : t))
+    pt.tasks.forEach(
+      (checkTask) => {
+        checkTask.then(
+          (completedTask) => {
+            setTasks((preTasks) =>
+              preTasks.map((preTask) =>
+                preTask.name === completedTask.name ? completedTask : preTask
+              )
+            );
+          },
+          (failedTask) => {
+            setTasks((preTasks) =>
+              preTasks.map((preTask) =>
+                preTask.name === failedTask.name ? failedTask : preTask
+              )
+            );
+          }
         );
-      });
-    });
-    // pt.all().then((re) => {npm
-    //   setTasks(re.map((r) => r[0]));
-    // });
+      }
+      // pt.all().then((re) => {npm
+      //   setTasks(re.map((r) => r[0]));
+      // });
+    );
   }, []);
   return (
     <Box flexDirection="column" paddingBottom={2}>
@@ -35,12 +48,14 @@ const ProjectUI = ({ project }) => {
         {tasks.map((task) => {
           return (
             <Box key={task.name}>
-              {task.check !== undefined ? (
+              {task.state === "done" ? (
                 <Text>{task.check ? "✅" : "❗️"}</Text>
-              ) : (
+              ) : task.state === "pending" ? (
                 <Color green>
                   <Spinner type="dots" />
                 </Color>
+              ) : (
+                <Text>{"❓"}</Text>
               )}
               <Text>{task.name}</Text>
             </Box>
