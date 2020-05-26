@@ -13,22 +13,19 @@ const ProjectUI = ({ project }) => {
     const pt = new ProjectCheckTask(project);
     setTasks(pt.tasks);
     pt.tasks.forEach((checkTask) => {
-      checkTask.then(
-        (completedTask) => {
-          setTasks((preTasks) =>
-            preTasks.map((preTask) =>
-              preTask.name === completedTask.name ? completedTask : preTask
-            )
-          );
-        },
-        (failedTask) => {
-          setTasks((preTasks) =>
-            preTasks.map((preTask) =>
-              preTask.name === failedTask.name ? failedTask : preTask
-            )
-          );
-        }
-      );
+      checkTask.task.then((completedTask) => {
+        setTasks((preTasks) =>
+          preTasks.map((preTask) =>
+            preTask.name === completedTask.name ? completedTask : preTask
+          )
+        );
+      }).catch((failedTask) => {
+        setTasks((preTasks) =>
+          preTasks.map((preTask) =>
+            preTask.name === failedTask.name ? failedTask : preTask
+          )
+        );
+      });
     });
   }, []);
   return (
