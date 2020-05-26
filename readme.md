@@ -2,7 +2,7 @@
 
 multi-repo的默认 UI，具体见主项目——[multi-repo](https://github.com/nielinjie/multi-repo)
 
-![Screen Shot 2020-05-26 at 10.45.45 PM](images/Screen Shot 2020-05-26 at 10.45.45 PM.png)
+![ScreenShot2020-05-26](images/ScreenShot2020-05-26.png)
 
 ## 感谢
 
