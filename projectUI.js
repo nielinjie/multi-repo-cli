@@ -5,6 +5,7 @@ const { useState, useEffect } = React;
 const PropTypes = require("prop-types");
 const { Text, Color, Box } = require("ink");
 const { ProjectCheckTask } = require("@nielinjie/multi-repo");
+const Link =require( "ink-link");
 
 const Spinner = require("ink-spinner").default;
 const ProjectUI = ({ project }) => {
@@ -34,6 +35,10 @@ const ProjectUI = ({ project }) => {
         <Text bold>{project.name}</Text>
         <Box paddingLeft={3}>
           <Text>{project.path}</Text>
+        </Box>
+        <Box paddingLeft={2}>
+          {/* TODO 如何实现每次打开新窗口 */}
+          <Link url={`vscode://file/${project.path}`}>Open with VSCode</Link>
         </Box>
       </Box>
       <Box flexDirection="column">
